@@ -199,30 +199,30 @@ export default function LearnEwaste() {
       
       {/* Hero Header */}
       <section className="text-center max-w-4xl mx-auto px-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
-          <BookOpen className="w-4 h-4" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold mb-4">
+          <BookOpen className="w-4 h-4 text-emerald-600" />
           <span>E-Waste Identification & Acceptance Handbook</span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          What Exactly is <span className="text-emerald-400">E-Waste?</span>
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          What Exactly is <span className="text-emerald-600">E-Waste?</span>
         </h1>
 
-        <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">
+        <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
           E-waste is any discarded electrical or electronic device or component — anything with a{' '}
-          <strong className="text-white">plug, battery, circuit board or power cable</strong> that no longer works or is no longer wanted.
+          <strong className="text-slate-900">plug, battery, circuit board or power cable</strong> that no longer works or is no longer wanted.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             to="/submissions/new"
-            className="px-6 py-3 rounded-xl font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-lg shadow-emerald-500/20 transition-all hover:scale-105"
+            className="px-6 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-500/20 transition-all hover:scale-105"
           >
             Start Submitting E-Waste
           </Link>
           <a
             href="#checker"
-            className="px-6 py-3 rounded-xl font-semibold text-slate-200 bg-slate-900 border border-slate-700 hover:bg-slate-800 transition-colors"
+            className="px-6 py-3 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm"
           >
             Search Acceptable Items
           </a>
@@ -231,27 +231,27 @@ export default function LearnEwaste() {
 
       {/* Quick Identification Tips Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl glass-panel p-6 sm:p-8 border border-slate-800">
-          <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-            <Zap className="w-5 h-5 text-amber-400" />
+        <div className="rounded-2xl bg-white p-6 sm:p-8 border border-slate-200/80 shadow-sm">
+          <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <Zap className="w-5 h-5 text-amber-500" />
             Quick Identification Rule of Thumb
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-              <strong className="text-emerald-400 block text-sm mb-1">1. Has a Plug or Cord</strong>
-              Wall appliances, chargers, cables, and adaptors that conduct electric current.
+            <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80">
+              <strong className="text-emerald-700 block text-sm mb-1">1. Has a Plug or Cord</strong>
+              <span className="text-slate-600">Wall appliances, chargers, cables, and adaptors that conduct electric current.</span>
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-              <strong className="text-cyan-400 block text-sm mb-1">2. Battery-Powered</strong>
-              Phones, remotes, toys with circuit boards, wireless earbuds, smartwatches.
+            <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80">
+              <strong className="text-cyan-700 block text-sm mb-1">2. Battery-Powered</strong>
+              <span className="text-slate-600">Phones, remotes, toys with circuit boards, wireless earbuds, smartwatches.</span>
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-              <strong className="text-amber-400 block text-sm mb-1">3. Crossed-Out Bin Symbol</strong>
-              Look at the product label: a crossed-out wheelie bin indicates mandatory e-waste disposal.
+            <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80">
+              <strong className="text-amber-700 block text-sm mb-1">3. Crossed-Out Bin Symbol</strong>
+              <span className="text-slate-600">Look at the product label: a crossed-out wheelie bin indicates mandatory e-waste disposal.</span>
             </div>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-              <strong className="text-indigo-400 block text-sm mb-1">4. Drawer Stash Gadgets</strong>
-              Old broken phones, keyboards, cables, and obsolete chargers lying forgotten in closets.
+            <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80">
+              <strong className="text-indigo-700 block text-sm mb-1">4. Drawer Stash Gadgets</strong>
+              <span className="text-slate-600">Old broken phones, keyboards, cables, and obsolete chargers lying forgotten in closets.</span>
             </div>
           </div>
         </div>
@@ -261,13 +261,13 @@ export default function LearnEwaste() {
       <section id="checker" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <span className="text-xs uppercase font-bold tracking-widest text-emerald-400">
+            <span className="text-xs uppercase font-bold tracking-widest text-emerald-600">
               Catalog & Rates
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
               Accepted Categories & Base Credits
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-500 mt-1">
               Search by gadget name to see if it qualifies, base reward points, and handling flags.
             </p>
           </div>
@@ -280,7 +280,7 @@ export default function LearnEwaste() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="e.g. iPhone, blender, cable, PCB..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all shadow-sm"
             />
           </div>
         </div>
@@ -290,17 +290,17 @@ export default function LearnEwaste() {
           {filteredCategories.map((cat, idx) => (
             <div
               key={cat.id || idx}
-              className="glass-card rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/40 transition-all"
+              className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:border-emerald-500/50 hover:shadow-md transition-all"
             >
               <div>
                 <div className="flex items-start justify-between gap-2 mb-3">
-                  <h3 className="font-bold text-white text-base">{cat.name}</h3>
+                  <h3 className="font-bold text-slate-900 text-base">{cat.name}</h3>
                   {cat.hazardous ? (
-                    <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-950/80 text-rose-400 border border-rose-500/30 flex items-center gap-1">
+                    <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">
                       <AlertTriangle className="w-3 h-3" /> Hazardous
                     </span>
                   ) : (
-                    <span className="shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                    <span className="shrink-0 text-[10px] font-medium px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
                       <CheckCircle2 className="w-3 h-3" /> Standard
                     </span>
                   )}
@@ -311,7 +311,7 @@ export default function LearnEwaste() {
                   {cat.examples?.map((ex, i) => (
                     <span
                       key={i}
-                      className="text-[11px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700/60"
+                      className="text-[11px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200"
                     >
                       {ex}
                     </span>
@@ -319,17 +319,17 @@ export default function LearnEwaste() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase font-semibold">Base Reward</span>
-                  <strong className="text-emerald-400 font-mono text-sm">
+                  <strong className="text-emerald-600 font-mono text-sm">
                     {cat.baseRate} credits / {cat.unit === 'PER_KG' ? 'kg' : 'item'}
                   </strong>
                 </div>
 
                 <div className="text-right">
                   <span className="text-slate-400 block text-[10px] uppercase font-semibold">CO₂ Offset</span>
-                  <span className="text-slate-300 font-mono text-xs">
+                  <span className="text-slate-600 font-mono text-xs">
                     ~{cat.co2PerKg} kg CO₂/kg
                   </span>
                 </div>
@@ -339,9 +339,9 @@ export default function LearnEwaste() {
         </div>
 
         {filteredCategories.length === 0 && (
-          <div className="text-center py-12 rounded-2xl glass-panel">
-            <Info className="w-8 h-8 text-slate-500 mx-auto mb-2" />
-            <p className="text-slate-300 font-medium text-sm">No category matched "{searchQuery}"</p>
+          <div className="text-center py-12 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+            <Info className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+            <p className="text-slate-700 font-medium text-sm">No category matched "{searchQuery}"</p>
             <p className="text-xs text-slate-500 mt-1">Try searching for keywords like "laptop", "battery", or "adapter".</p>
           </div>
         )}
@@ -352,52 +352,52 @@ export default function LearnEwaste() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* What WE ACCEPT */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/20">
-            <div className="flex items-center gap-2 mb-4 text-emerald-400">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-emerald-200 shadow-sm">
+            <div className="flex items-center gap-2 mb-4 text-emerald-700">
               <CheckCircle2 className="w-6 h-6" />
-              <h3 className="text-xl font-bold text-white">Items Accepted for Recycling</h3>
+              <h3 className="text-xl font-bold text-slate-900">Items Accepted for Recycling</h3>
             </div>
-            <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="text-emerald-600 font-bold">✓</span>
                 Any electronic device with a cord, circuit board, or battery chamber
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="text-emerald-600 font-bold">✓</span>
                 Broken, non-booting, cracked screen gadgets and legacy components
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="text-emerald-600 font-bold">✓</span>
                 Loose wires, HDMI, USB cords, phone chargers, power strips
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-emerald-400 font-bold">✓</span>
+                <span className="text-emerald-600 font-bold">✓</span>
                 Home appliances (mixers, irons, microwaves, fans, audio gear)
               </li>
             </ul>
           </div>
 
           {/* What is NOT E-WASTE */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 border border-rose-500/20">
-            <div className="flex items-center gap-2 mb-4 text-rose-400">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-rose-200 shadow-sm">
+            <div className="flex items-center gap-2 mb-4 text-rose-600">
               <XCircle className="w-6 h-6" />
-              <h3 className="text-xl font-bold text-white">Do Not Submit (Not E-Waste)</h3>
+              <h3 className="text-xl font-bold text-slate-900">Do Not Submit (Not E-Waste)</h3>
             </div>
-            <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <span className="text-rose-400 font-bold">✕</span>
+                <span className="text-rose-600 font-bold">✕</span>
                 Regular municipal trash, food scraps, paper, cardboard, and empty plastic bottles
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-rose-400 font-bold">✕</span>
+                <span className="text-rose-600 font-bold">✕</span>
                 Medical or biohazardous waste (e.g. used syringes even if electronic)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-rose-400 font-bold">✕</span>
+                <span className="text-rose-600 font-bold">✕</span>
                 Explosives, fireworks, fire extinguishers, or pressurized gas cylinders
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-rose-400 font-bold">✕</span>
+                <span className="text-rose-600 font-bold">✕</span>
                 Leaking, actively smoking, or charred batteries — contact collector first
               </li>
             </ul>
@@ -406,79 +406,79 @@ export default function LearnEwaste() {
         </div>
       </section>
 
-      {/* Safety & Preparation Checklist (Section 5.4) */}
+      {/* Safety & Preparation Checklist */}
       <section id="safety" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl glass-panel p-8 sm:p-12 border border-slate-800">
+        <div className="rounded-3xl bg-white p-8 sm:p-12 border border-slate-200/80 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs uppercase font-bold tracking-widest text-emerald-400">
+            <span className="text-xs uppercase font-bold tracking-widest text-emerald-600">
               Safety First
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
               Device Preparation & Handoff Checklist
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm mt-2">
+            <p className="text-slate-500 text-xs sm:text-sm mt-2">
               Follow these mandatory precautions before your scheduled collector arrival.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm mb-3">
                 1
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Erase Personal Data</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Erase Personal Data</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Factory reset phones, tablets, and laptops. Remove SIM cards and microSD storage chips.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-cyan-100 text-cyan-800 flex items-center justify-center font-bold text-sm mb-3">
                 2
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Detach Removable Batteries</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Detach Removable Batteries</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 If battery is detachable, remove it and store in a separate sealable bag.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm mb-3">
                 3
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Do Not Break or Dismantle</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Do Not Break or Dismantle</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Never intentionally crack open lithium battery housings or smash CRT displays.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold text-sm mb-3">
                 4
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Store Dry & Out of Sun</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Store Dry & Out of Sun</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Keep stored items away from humidity and heat sources to prevent short circuits.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-sm mb-3">
                 5
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Tape Battery Terminals</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Tape Battery Terminals</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Place electrical tape over exposed metal contact terminals on loose lithium batteries.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
-              <div className="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-sm mb-3">
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80">
+              <div className="w-8 h-8 rounded-lg bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-sm mb-3">
                 6
               </div>
-              <h4 className="font-bold text-white text-sm mb-1">Take Clear Photos</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Take Clear Photos</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Upload 2+ photos from different angles during submission so collectors can pre-verify.
               </p>
             </div>
@@ -490,10 +490,10 @@ export default function LearnEwaste() {
       {/* FAQ Accordion */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <span className="text-xs uppercase font-bold tracking-widest text-emerald-400">
+          <span className="text-xs uppercase font-bold tracking-widest text-emerald-600">
             Common Questions
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
             Frequently Asked Questions
           </h2>
         </div>
@@ -504,14 +504,14 @@ export default function LearnEwaste() {
             return (
               <div
                 key={index}
-                className="rounded-xl border border-slate-800 bg-slate-900/60 overflow-hidden transition-all"
+                className="rounded-xl border border-slate-200/80 bg-white shadow-xs overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenFaq(isOpen ? -1 : index)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-semibold text-white hover:text-emerald-400 transition-colors"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-semibold text-slate-900 hover:text-emerald-600 transition-colors"
                 >
                   <span className="text-sm sm:text-base flex items-center gap-2">
-                    <HelpCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <HelpCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                     {faq.q}
                   </span>
                   {isOpen ? (
@@ -522,7 +522,7 @@ export default function LearnEwaste() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                     {faq.a}
                   </div>
                 )}

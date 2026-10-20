@@ -32,27 +32,27 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) =>
     `px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
       isActive
-        ? 'text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 shadow-sm shadow-emerald-950/50'
-        : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+        ? 'text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm'
+        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
     }`;
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 shadow-lg">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 p-0.5 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                <Recycle className="w-5 h-5 text-emerald-400 animate-spin-slow" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-500 p-0.5 shadow-md shadow-emerald-500/10 group-hover:scale-105 transition-transform">
+              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+                <Recycle className="w-5 h-5 text-emerald-600" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                Volt<span className="text-emerald-400">Cycle</span>
+              <span className="font-extrabold text-lg tracking-tight text-slate-900">
+                Volt<span className="text-emerald-600">Cycle</span>
               </span>
-              <span className="text-[10px] font-semibold text-emerald-500/80 -mt-1 tracking-wider uppercase">
+              <span className="text-[10px] font-semibold text-emerald-700 -mt-1 tracking-wider uppercase">
                 E-Waste Credits
               </span>
             </div>
@@ -64,39 +64,39 @@ export default function Navbar() {
               Home
             </NavLink>
             <NavLink to="/learn" className={navLinkClass}>
-              <BookOpen className="w-4 h-4 text-emerald-400" />
+              <BookOpen className="w-4 h-4 text-emerald-600" />
               Learn E-Waste
             </NavLink>
             <NavLink to="/offers" className={navLinkClass}>
-              <Gift className="w-4 h-4 text-amber-400" />
+              <Gift className="w-4 h-4 text-amber-500" />
               Offers
             </NavLink>
 
             {isAuthenticated && (
               <>
                 <NavLink to="/dashboard" className={navLinkClass}>
-                  <LayoutDashboard className="w-4 h-4 text-cyan-400" />
+                  <LayoutDashboard className="w-4 h-4 text-cyan-600" />
                   Dashboard
                 </NavLink>
                 <NavLink to="/submissions" end className={navLinkClass}>
-                  <Layers className="w-4 h-4 text-indigo-400" />
+                  <Layers className="w-4 h-4 text-indigo-600" />
                   My Submissions
                 </NavLink>
                 <NavLink to="/wallet" className={navLinkClass}>
-                  <Wallet className="w-4 h-4 text-emerald-400" />
+                  <Wallet className="w-4 h-4 text-emerald-600" />
                   Wallet
                 </NavLink>
 
                 {isCollector && (
                   <NavLink to="/collector" className={navLinkClass}>
-                    <Truck className="w-4 h-4 text-amber-400" />
+                    <Truck className="w-4 h-4 text-amber-600" />
                     Collector
                   </NavLink>
                 )}
 
                 {isAdmin && (
                   <NavLink to="/admin" className={navLinkClass}>
-                    <ShieldCheck className="w-4 h-4 text-rose-400" />
+                    <ShieldCheck className="w-4 h-4 text-rose-600" />
                     Admin
                   </NavLink>
                 )}
@@ -110,20 +110,20 @@ export default function Navbar() {
               <div className="flex items-center gap-3">
                 <Link
                   to="/submissions/new"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-md shadow-emerald-900/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <PlusCircle className="w-4 h-4" />
                   Submit E-Waste
                 </Link>
 
-                <div className="h-6 w-px bg-slate-800" />
+                <div className="h-6 w-px bg-slate-200" />
 
                 <div className="flex items-center gap-2 pl-1">
                   <div className="flex flex-col text-right">
-                    <span className="text-xs font-semibold text-slate-200">
+                    <span className="text-xs font-semibold text-slate-800">
                       {user?.name || 'Recycler'}
                     </span>
-                    <span className="text-[10px] text-emerald-400 font-medium capitalize">
+                    <span className="text-[10px] text-emerald-700 font-semibold capitalize">
                       {user?.role?.toLowerCase() || 'user'}
                     </span>
                   </div>
@@ -131,7 +131,7 @@ export default function Navbar() {
                   <button
                     onClick={handleLogout}
                     title="Sign Out"
-                    className="p-2 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800/80 transition-colors"
+                    className="p-2 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-slate-100 transition-colors"
                   >
                     <LogOut className="w-4 h-4" />
                   </button>
@@ -141,13 +141,13 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <Link
                   to="/login"
-                  className="px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+                  className="px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-1.5 rounded-lg text-sm font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-500/20 transition-all hover:scale-[1.02]"
+                  className="px-4 py-1.5 rounded-lg text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md shadow-emerald-600/20 transition-all hover:scale-[1.02]"
                 >
                   Register
                 </Link>
@@ -159,7 +159,7 @@ export default function Navbar() {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80"
+              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -170,25 +170,25 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+        <div className="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-xl">
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
           >
             Home
           </Link>
           <Link
             to="/learn"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
           >
             Learn E-Waste
           </Link>
           <Link
             to="/offers"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+            className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
           >
             Offers & Rewards
           </Link>
@@ -198,28 +198,28 @@ export default function Navbar() {
               <Link
                 to="/dashboard"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
               >
                 Dashboard
               </Link>
               <Link
                 to="/submissions"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
               >
                 My Submissions
               </Link>
               <Link
                 to="/submissions/new"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-emerald-400 bg-emerald-950/30 border border-emerald-500/30"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-emerald-700 bg-emerald-50 border border-emerald-200"
               >
                 + New Submission
               </Link>
               <Link
                 to="/wallet"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-slate-100"
               >
                 Wallet & Ledger
               </Link>
@@ -228,7 +228,7 @@ export default function Navbar() {
                 <Link
                   to="/collector"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-lg text-base font-medium text-amber-400 hover:bg-slate-800"
+                  className="block px-3 py-2 rounded-lg text-base font-medium text-amber-700 hover:bg-slate-100"
                 >
                   Collector Panel
                 </Link>
@@ -238,19 +238,19 @@ export default function Navbar() {
                 <Link
                   to="/admin"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-lg text-base font-medium text-rose-400 hover:bg-slate-800"
+                  className="block px-3 py-2 rounded-lg text-base font-medium text-rose-700 hover:bg-slate-100"
                 >
                   Admin Panel
                 </Link>
               )}
 
-              <div className="pt-3 border-t border-slate-800">
+              <div className="pt-3 border-t border-slate-200">
                 <button
                   onClick={() => {
                     handleLogout();
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full text-left px-3 py-2 rounded-lg text-base font-medium text-rose-400 hover:bg-rose-950/30 flex items-center gap-2"
+                  className="w-full text-left px-3 py-2 rounded-lg text-base font-medium text-rose-600 hover:bg-rose-50 flex items-center gap-2"
                 >
                   <LogOut className="w-5 h-5" />
                   Sign Out ({user?.name})
@@ -258,18 +258,18 @@ export default function Navbar() {
               </div>
             </>
           ) : (
-            <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
+            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
               <Link
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-slate-200 bg-slate-900 border border-slate-800"
+                className="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-slate-800 bg-slate-100 border border-slate-200 hover:bg-slate-200"
               >
                 Sign In
               </Link>
               <Link
                 to="/register"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300"
+                className="w-full text-center py-2.5 rounded-lg text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
               >
                 Create Free Account
               </Link>

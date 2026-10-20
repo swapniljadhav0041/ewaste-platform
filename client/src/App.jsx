@@ -26,7 +26,7 @@ export default function App() {
     <Router>
       <AuthProvider>
         <ToastProvider>
-          <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-white">
+          <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white">
             <Navbar />
             
             <main className="flex-1">

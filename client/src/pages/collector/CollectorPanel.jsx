@@ -134,14 +134,14 @@ export default function CollectorPanel() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/80 text-amber-400 border border-amber-500/30 mb-2">
-            <Truck className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 mb-2">
+            <Truck className="w-3.5 h-3.5 text-amber-600" />
             Authorized Collector Terminal
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
             E-Waste Pickups & Inspection
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-600 mt-1">
             Assign pickup routes, inspect physical device condition, and verify reward credits.
           </p>
         </div>
@@ -154,8 +154,8 @@ export default function CollectorPanel() {
               onClick={() => setFilterStatus(status)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 filterStatus === status
-                  ? 'bg-amber-400 text-slate-950 shadow-md shadow-amber-500/20'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-amber-500 text-white shadow-xs'
+                  : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200'
               }`}
             >
               {status}
@@ -166,10 +166,10 @@ export default function CollectorPanel() {
 
       {/* Submissions List */}
       {submissions.length === 0 ? (
-        <div className="text-center py-16 glass-panel rounded-3xl border border-slate-800 p-8 space-y-3">
-          <Truck className="w-12 h-12 text-slate-600 mx-auto" />
-          <h3 className="text-lg font-bold text-white">No Assigned Pickups</h3>
-          <p className="text-xs text-slate-400">
+        <div className="text-center py-16 bg-white rounded-3xl border border-slate-200/80 p-8 space-y-3 shadow-sm">
+          <Truck className="w-12 h-12 text-slate-400 mx-auto" />
+          <h3 className="text-lg font-bold text-slate-900">No Assigned Pickups</h3>
+          <p className="text-xs text-slate-500">
             No submissions found under status filter "{filterStatus}".
           </p>
         </div>
@@ -178,22 +178,22 @@ export default function CollectorPanel() {
           {submissions.map((sub) => (
             <div
               key={sub.id}
-              className="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+              className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-6"
             >
               <div className="space-y-2 max-w-xl">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-slate-300">
+                  <span className="font-mono text-xs font-bold text-slate-700">
                     #{sub.id.slice(0, 8).toUpperCase()}
                   </span>
                   <span
                     className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
                       sub.status === 'VERIFIED'
-                        ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/30'
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                         : sub.status === 'COLLECTED'
-                        ? 'bg-indigo-950 text-indigo-400 border border-indigo-500/30'
+                        ? 'bg-indigo-50 text-indigo-700 border border-indigo-200'
                         : sub.status === 'SCHEDULED'
-                        ? 'bg-cyan-950 text-cyan-400 border border-cyan-500/30'
-                        : 'bg-amber-950 text-amber-400 border border-amber-500/30'
+                        ? 'bg-cyan-50 text-cyan-700 border border-cyan-200'
+                        : 'bg-amber-50 text-amber-700 border border-amber-200'
                     }`}
                   >
                     {sub.status}
@@ -203,13 +203,13 @@ export default function CollectorPanel() {
                   </span>
                 </div>
 
-                <div className="flex items-start gap-1.5 text-xs text-slate-300">
-                  <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-1.5 text-xs text-slate-700">
+                  <MapPin className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span>{sub.pickupAddress}</span>
                 </div>
 
-                <div className="text-xs text-slate-400">
-                  Items: <strong className="text-slate-200">{sub.items?.length || 0}</strong>{' '}
+                <div className="text-xs text-slate-500">
+                  Items: <strong className="text-slate-800">{sub.items?.length || 0}</strong>{' '}
                   {sub.pickupSlot && `• Scheduled: ${new Date(sub.pickupSlot).toLocaleString()}`}
                   {sub.notes && ` • Notes: "${sub.notes}"`}
                 </div>
@@ -220,7 +220,7 @@ export default function CollectorPanel() {
                 {sub.status === 'REQUESTED' && (
                   <button
                     onClick={() => handleSchedule(sub.id)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-cyan-600 hover:bg-cyan-700 transition-colors flex items-center gap-1.5 shadow-xs"
                   >
                     <Calendar className="w-3.5 h-3.5" />
                     Accept & Schedule
@@ -230,7 +230,7 @@ export default function CollectorPanel() {
                 {sub.status === 'SCHEDULED' && (
                   <button
                     onClick={() => handleCollect(sub.id)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-indigo-400 hover:bg-indigo-300 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 transition-colors flex items-center gap-1.5 shadow-xs"
                   >
                     <Truck className="w-3.5 h-3.5" />
                     Confirm Collected
@@ -240,7 +240,7 @@ export default function CollectorPanel() {
                 {sub.status === 'COLLECTED' && (
                   <button
                     onClick={() => openVerifyModal(sub)}
-                    className="px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-500/20 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition-colors flex items-center gap-1.5"
                   >
                     <ShieldCheck className="w-3.5 h-3.5" />
                     Inspect & Verify Credits
@@ -250,7 +250,7 @@ export default function CollectorPanel() {
                 {sub.status !== 'VERIFIED' && sub.status !== 'REJECTED' && (
                   <button
                     onClick={() => handleReject(sub.id)}
-                    className="px-3 py-2 rounded-xl text-xs font-semibold text-rose-400 bg-slate-900 border border-slate-700 hover:bg-rose-950/40 transition-colors"
+                    className="px-3 py-2 rounded-xl text-xs font-semibold text-rose-700 bg-rose-50 border border-rose-200 hover:bg-rose-100 transition-colors"
                   >
                     Reject
                   </button>
@@ -263,18 +263,18 @@ export default function CollectorPanel() {
 
       {/* Verification & Grading Modal */}
       {verifyingSub && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in">
-          <div className="max-w-2xl w-full glass-panel p-6 sm:p-8 rounded-3xl border border-emerald-500/40 shadow-2xl space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in">
+          <div className="max-w-2xl w-full bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-2xl space-y-6">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div>
-                <h3 className="text-lg font-bold text-white">Item Grading & Weight Inspection</h3>
-                <p className="text-xs text-slate-400">
+                <h3 className="text-lg font-bold text-slate-900">Item Grading & Weight Inspection</h3>
+                <p className="text-xs text-slate-500">
                   Submission #{verifyingSub.id.slice(0, 8)} • Citizen: {verifyingSub.user?.name}
                 </p>
               </div>
               <button
                 onClick={() => setVerifyingSub(null)}
-                className="text-slate-400 hover:text-white"
+                className="text-slate-400 hover:text-slate-800"
               >
                 ✕
               </button>
@@ -282,17 +282,17 @@ export default function CollectorPanel() {
 
             <div className="space-y-4 max-h-[50vh] overflow-y-auto pr-2">
               {verifyingSub.items?.map((item, idx) => (
-                <div key={item.id} className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                <div key={item.id} className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-white text-xs">Item #{idx + 1}</span>
-                    <span className="text-[11px] text-slate-400">
+                    <span className="font-bold text-slate-900 text-xs">Item #{idx + 1}</span>
+                    <span className="text-[11px] text-slate-500">
                       Declared: {item.quantity} units / {item.weightKg || '—'} kg
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-semibold text-slate-300 mb-1">
+                      <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                         Condition Grade
                       </label>
                       <select
@@ -306,7 +306,7 @@ export default function CollectorPanel() {
                             }
                           });
                         }}
-                        className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white"
+                        className="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 shadow-xs"
                       >
                         <option value="A">Grade A (Working / Reusable - 1.5x)</option>
                         <option value="B">Grade B (Repairable - 1.0x)</option>
@@ -316,7 +316,7 @@ export default function CollectorPanel() {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-slate-300 mb-1">
+                      <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                         Verified Weight (kg)
                       </label>
                       <input
@@ -333,7 +333,7 @@ export default function CollectorPanel() {
                             }
                           });
                         }}
-                        className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white"
+                        className="w-full px-3 py-2 rounded-lg bg-white border border-slate-200 text-xs text-slate-900 shadow-xs"
                       />
                     </div>
                   </div>
@@ -341,17 +341,17 @@ export default function CollectorPanel() {
               ))}
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
               <button
                 onClick={() => setVerifyingSub(null)}
-                className="px-4 py-2 rounded-xl text-xs text-slate-300 hover:text-white"
+                className="px-4 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900"
               >
                 Cancel
               </button>
               <button
                 onClick={handleVerifySubmit}
                 disabled={submittingVerification}
-                className="px-6 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 flex items-center gap-1.5 shadow-md shadow-emerald-500/20"
+                className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 flex items-center gap-1.5 shadow-sm"
               >
                 {submittingVerification && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                 Approve & Post Ledger Credits

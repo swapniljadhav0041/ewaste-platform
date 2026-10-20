@@ -168,25 +168,25 @@ export default function NewSubmission() {
       
       {/* Title & Step Wizard */}
       <div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
           Schedule E-Waste Pickup
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 mt-1">
+        <p className="text-xs sm:text-sm text-slate-600 mt-1">
           Complete the 4-step wizard to arrange doorstep collection & earn credits.
         </p>
 
         {/* Wizard Steps indicator */}
         <div className="mt-8 grid grid-cols-4 gap-2 text-center text-xs font-semibold">
-          <div className={`p-2.5 rounded-xl border ${step >= 1 ? 'bg-emerald-950/60 border-emerald-500/50 text-emerald-300' : 'bg-slate-900 border-slate-800 text-slate-500'}`}>
+          <div className={`p-2.5 rounded-xl border ${step >= 1 ? 'bg-emerald-50 border-emerald-300 text-emerald-800 shadow-xs' : 'bg-white border-slate-200 text-slate-400'}`}>
             1. Items & Photos
           </div>
-          <div className={`p-2.5 rounded-xl border ${step >= 2 ? 'bg-emerald-950/60 border-emerald-500/50 text-emerald-300' : 'bg-slate-900 border-slate-800 text-slate-500'}`}>
+          <div className={`p-2.5 rounded-xl border ${step >= 2 ? 'bg-emerald-50 border-emerald-300 text-emerald-800 shadow-xs' : 'bg-white border-slate-200 text-slate-400'}`}>
             2. Safety Checks
           </div>
-          <div className={`p-2.5 rounded-xl border ${step >= 3 ? 'bg-emerald-950/60 border-emerald-500/50 text-emerald-300' : 'bg-slate-900 border-slate-800 text-slate-500'}`}>
+          <div className={`p-2.5 rounded-xl border ${step >= 3 ? 'bg-emerald-50 border-emerald-300 text-emerald-800 shadow-xs' : 'bg-white border-slate-200 text-slate-400'}`}>
             3. Address & Slot
           </div>
-          <div className={`p-2.5 rounded-xl border ${step >= 4 ? 'bg-emerald-950/60 border-emerald-500/50 text-emerald-300' : 'bg-slate-900 border-slate-800 text-slate-500'}`}>
+          <div className={`p-2.5 rounded-xl border ${step >= 4 ? 'bg-emerald-50 border-emerald-300 text-emerald-800 shadow-xs' : 'bg-white border-slate-200 text-slate-400'}`}>
             4. Review & Confirm
           </div>
         </div>
@@ -194,13 +194,13 @@ export default function NewSubmission() {
 
       {/* STEP 1: Items & Photos */}
       {step === 1 && (
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-white">Add Electronics for Recycling</h2>
+            <h2 className="text-lg font-bold text-slate-900">Add Electronics for Recycling</h2>
             <button
               type="button"
               onClick={addItem}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 shadow-xs"
             >
               <Plus className="w-3.5 h-3.5" />
               Add Another Item
@@ -213,16 +213,16 @@ export default function NewSubmission() {
               const isKg = selectedCat?.unit === 'PER_KG';
 
               return (
-                <div key={idx} className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-4">
+                <div key={idx} className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-emerald-400">
+                    <span className="text-xs font-mono font-bold text-emerald-700">
                       ITEM #{idx + 1}
                     </span>
                     {items.length > 1 && (
                       <button
                         type="button"
                         onClick={() => removeItem(idx)}
-                        className="text-slate-500 hover:text-rose-400 transition-colors"
+                        className="text-slate-400 hover:text-rose-600 transition-colors"
                         title="Remove Item"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -233,13 +233,13 @@ export default function NewSubmission() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Category Selection */}
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
                         Select Category
                       </label>
                       <select
                         value={item.categoryId}
                         onChange={(e) => updateItem(idx, 'categoryId', e.target.value)}
-                        className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:border-emerald-500"
+                        className="w-full px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-emerald-500 shadow-xs"
                       >
                         {categories.map(c => (
                           <option key={c.id} value={c.id}>
@@ -252,7 +252,7 @@ export default function NewSubmission() {
                     {/* Quantity or Weight */}
                     {isKg ? (
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
                           Estimated Weight (kg)
                         </label>
                         <input
@@ -261,12 +261,12 @@ export default function NewSubmission() {
                           min="0.1"
                           value={item.weightKg}
                           onChange={(e) => updateItem(idx, 'weightKg', e.target.value)}
-                          className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white"
+                          className="w-full px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 shadow-xs"
                         />
                       </div>
                     ) : (
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">
+                        <label className="block text-xs font-semibold text-slate-700 mb-1">
                           Quantity
                         </label>
                         <input
@@ -274,7 +274,7 @@ export default function NewSubmission() {
                           min="1"
                           value={item.quantity}
                           onChange={(e) => updateItem(idx, 'quantity', e.target.value)}
-                          className="w-full px-3 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white"
+                          className="w-full px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 shadow-xs"
                         />
                       </div>
                     )}
@@ -282,12 +282,12 @@ export default function NewSubmission() {
 
                   {/* Photo Upload Section */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Upload Photos <span className="text-slate-500 font-normal">(Min 1-2 photos recommended)</span>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Upload Photos <span className="text-slate-400 font-normal">(Min 1-2 photos recommended)</span>
                     </label>
                     <div className="flex flex-wrap items-center gap-3">
-                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700">
-                        <Upload className="w-3.5 h-3.5 text-emerald-400" />
+                      <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-slate-100 text-xs font-medium text-slate-700 border border-slate-200 shadow-xs">
+                        <Upload className="w-3.5 h-3.5 text-emerald-600" />
                         Upload Device Photo
                         <input
                           type="file"
@@ -299,7 +299,7 @@ export default function NewSubmission() {
                       </label>
 
                       {item.photoUrls.map((url, pIdx) => (
-                        <div key={pIdx} className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-700">
+                        <div key={pIdx} className="relative w-12 h-12 rounded-lg overflow-hidden border border-slate-200 shadow-xs">
                           <img src={url} alt="Item" className="w-full h-full object-cover" />
                         </div>
                       ))}
@@ -310,11 +310,11 @@ export default function NewSubmission() {
             })}
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-slate-800">
+          <div className="flex justify-end pt-4 border-t border-slate-100">
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="px-6 py-2.5 rounded-xl font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 flex items-center gap-2 text-sm"
+              className="px-6 py-2.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 text-sm shadow-sm"
             >
               Next: Safety Checks
               <ArrowRight className="w-4 h-4" />
@@ -323,63 +323,63 @@ export default function NewSubmission() {
         </div>
       )}
 
-      {/* STEP 2: Safety Checklist (Section 5.4) */}
+      {/* STEP 2: Safety Checklist */}
       {step === 2 && (
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
-          <div className="flex items-center gap-2 text-amber-400">
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+          <div className="flex items-center gap-2 text-amber-600">
             <ShieldAlert className="w-6 h-6" />
-            <h2 className="text-lg font-bold text-white">Pre-Submission Safety Checklist</h2>
+            <h2 className="text-lg font-bold text-slate-900">Pre-Submission Safety Checklist</h2>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-600">
             To ensure safe handling and privacy protection, please acknowledge the following standards:
           </p>
 
           <div className="space-y-4">
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-900/60 border border-slate-800 cursor-pointer hover:border-slate-700">
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200/80 cursor-pointer hover:border-slate-300">
               <input
                 type="checkbox"
                 checked={safetyCheck1}
                 onChange={(e) => setSafetyCheck1(e.target.checked)}
-                className="mt-1 w-4 h-4 text-emerald-500 rounded bg-slate-950 border-slate-700 focus:ring-emerald-500"
+                className="mt-1 w-4 h-4 text-emerald-600 rounded bg-white border-slate-300 focus:ring-emerald-500"
               />
-              <div className="text-xs text-slate-300 leading-relaxed">
-                <strong className="text-white block font-semibold mb-0.5">1. Personal Data Erased & SIMs Removed</strong>
+              <div className="text-xs text-slate-600 leading-relaxed">
+                <strong className="text-slate-900 block font-semibold mb-0.5">1. Personal Data Erased & SIMs Removed</strong>
                 I have factory-reset smart devices, wiped internal disks, and removed all SIM cards and memory chips. VoltCycle is not liable for lingering private data.
               </div>
             </label>
 
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-900/60 border border-slate-800 cursor-pointer hover:border-slate-700">
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200/80 cursor-pointer hover:border-slate-300">
               <input
                 type="checkbox"
                 checked={safetyCheck2}
                 onChange={(e) => setSafetyCheck2(e.target.checked)}
-                className="mt-1 w-4 h-4 text-emerald-500 rounded bg-slate-950 border-slate-700 focus:ring-emerald-500"
+                className="mt-1 w-4 h-4 text-emerald-600 rounded bg-white border-slate-300 focus:ring-emerald-500"
               />
-              <div className="text-xs text-slate-300 leading-relaxed">
-                <strong className="text-white block font-semibold mb-0.5">2. Battery Inspection</strong>
+              <div className="text-xs text-slate-600 leading-relaxed">
+                <strong className="text-slate-900 block font-semibold mb-0.5">2. Battery Inspection</strong>
                 None of the submitted items have leaking, actively punctured, or smoking batteries. Loose battery terminals have tape placed over their contacts.
               </div>
             </label>
 
-            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-900/60 border border-slate-800 cursor-pointer hover:border-slate-700">
+            <label className="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200/80 cursor-pointer hover:border-slate-300">
               <input
                 type="checkbox"
                 checked={safetyCheck3}
                 onChange={(e) => setSafetyCheck3(e.target.checked)}
-                className="mt-1 w-4 h-4 text-emerald-500 rounded bg-slate-950 border-slate-700 focus:ring-emerald-500"
+                className="mt-1 w-4 h-4 text-emerald-600 rounded bg-white border-slate-300 focus:ring-emerald-500"
               />
-              <div className="text-xs text-slate-300 leading-relaxed">
-                <strong className="text-white block font-semibold mb-0.5">3. Genuine Ownership & Acceptance</strong>
+              <div className="text-xs text-slate-600 leading-relaxed">
+                <strong className="text-slate-900 block font-semibold mb-0.5">3. Genuine Ownership & Acceptance</strong>
                 These devices belong to me or my organization and do not contain hazardous bio-medical or explosive material.
               </div>
             </label>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+          <div className="flex items-center justify-between pt-4 border-t border-slate-100">
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="px-5 py-2.5 rounded-xl text-slate-300 hover:text-white flex items-center gap-2 text-sm"
+              className="px-5 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center gap-2 text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -389,7 +389,7 @@ export default function NewSubmission() {
               type="button"
               disabled={!safetyCheck1 || !safetyCheck2 || !safetyCheck3}
               onClick={() => setStep(3)}
-              className="px-6 py-2.5 rounded-xl font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 flex items-center gap-2 text-sm disabled:opacity-40"
+              className="px-6 py-2.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 text-sm disabled:opacity-40 shadow-sm"
             >
               Next: Pickup Logistics
               <ArrowRight className="w-4 h-4" />
@@ -400,13 +400,13 @@ export default function NewSubmission() {
 
       {/* STEP 3: Address & Slot */}
       {step === 3 && (
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
-          <h2 className="text-lg font-bold text-white">Pickup Logistics & Timing</h2>
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+          <h2 className="text-lg font-bold text-slate-900">Pickup Logistics & Timing</h2>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-emerald-400" />
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-emerald-600" />
                 Complete Pickup Address *
               </label>
               <textarea
@@ -415,25 +415,25 @@ export default function NewSubmission() {
                 value={pickupAddress}
                 onChange={(e) => setPickupAddress(e.target.value)}
                 placeholder="Apartment/Flat No, Building, Street, Landmark, City, PIN code"
-                className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 shadow-xs"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-cyan-400" />
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-cyan-600" />
                 Preferred Pickup Date & Time
               </label>
               <input
                 type="datetime-local"
                 value={pickupSlot}
                 onChange={(e) => setPickupSlot(e.target.value)}
-                className="w-full sm:w-80 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:outline-none focus:border-emerald-500"
+                className="w-full sm:w-80 px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-emerald-500 shadow-xs"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Special Instructions for Collector (Optional)
               </label>
               <input
@@ -441,16 +441,16 @@ export default function NewSubmission() {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="e.g. Ring the bell twice, elevator available, call before arriving"
-                className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                className="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 shadow-xs"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+          <div className="flex items-center justify-between pt-4 border-t border-slate-100">
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="px-5 py-2.5 rounded-xl text-slate-300 hover:text-white flex items-center gap-2 text-sm"
+              className="px-5 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center gap-2 text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -465,7 +465,7 @@ export default function NewSubmission() {
                 }
                 setStep(4);
               }}
-              className="px-6 py-2.5 rounded-xl font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 flex items-center gap-2 text-sm"
+              className="px-6 py-2.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 text-sm shadow-sm"
             >
               Next: Review & Submit
               <ArrowRight className="w-4 h-4" />
@@ -476,26 +476,26 @@ export default function NewSubmission() {
 
       {/* STEP 4: Review & Confirm */}
       {step === 4 && (
-        <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
-          <h2 className="text-lg font-bold text-white">Review Submission Summary</h2>
+        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+          <h2 className="text-lg font-bold text-slate-900">Review Submission Summary</h2>
 
           {/* Items Summary Table */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-3">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Submitted Items ({items.length})
             </h3>
-            <div className="divide-y divide-slate-800 text-xs">
+            <div className="divide-y divide-slate-200 text-xs">
               {items.map((item, idx) => {
                 const cat = categories.find(c => c.id === item.categoryId);
                 return (
                   <div key={idx} className="py-2.5 flex items-center justify-between">
                     <div>
-                      <span className="font-semibold text-white">{cat?.name}</span>
-                      <span className="text-slate-400 ml-2">
+                      <span className="font-semibold text-slate-900">{cat?.name}</span>
+                      <span className="text-slate-500 ml-2">
                         {cat?.unit === 'PER_KG' ? `${item.weightKg} kg` : `Qty: ${item.quantity}`}
                       </span>
                     </div>
-                    <span className="text-slate-400">
+                    <span className="text-slate-500">
                       Photos: {item.photoUrls.length}
                     </span>
                   </div>
@@ -505,36 +505,36 @@ export default function NewSubmission() {
           </div>
 
           {/* Pickup Address Summary */}
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 space-y-1">
-            <strong className="text-white block font-semibold">Pickup Address:</strong>
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 space-y-1">
+            <strong className="text-slate-900 block font-semibold">Pickup Address:</strong>
             <p>{pickupAddress}</p>
-            {pickupSlot && <p className="text-cyan-400 font-medium">Slot: {new Date(pickupSlot).toLocaleString()}</p>}
+            {pickupSlot && <p className="text-cyan-700 font-medium">Slot: {new Date(pickupSlot).toLocaleString()}</p>}
           </div>
 
           {/* Credit Estimation Box */}
-          <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-950/60 to-teal-950/60 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-200">
                 <Coins className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs uppercase font-bold text-emerald-400">Estimated Value</span>
-                <div className="text-2xl font-extrabold text-white font-mono">
+                <span className="text-xs uppercase font-bold text-emerald-800">Estimated Value</span>
+                <div className="text-2xl font-extrabold text-slate-900 font-mono">
                   {est.min} - {est.max}{' '}
-                  <span className="text-sm text-emerald-300 font-sans font-normal">credits</span>
+                  <span className="text-sm text-emerald-700 font-sans font-normal">credits</span>
                 </div>
               </div>
             </div>
-            <p className="text-[11px] text-slate-400 max-w-xs">
+            <p className="text-[11px] text-slate-500 max-w-xs">
               Final credits depend on physical condition grading (Grade A: 1.5x, B: 1.0x, C: 0.5x) performed by collector.
             </p>
           </div>
 
-          <div className="flex items-center justify-between pt-4 border-t border-slate-800">
+          <div className="flex items-center justify-between pt-4 border-t border-slate-100">
             <button
               type="button"
               onClick={() => setStep(3)}
-              className="px-5 py-2.5 rounded-xl text-slate-300 hover:text-white flex items-center gap-2 text-sm"
+              className="px-5 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center gap-2 text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -544,11 +544,11 @@ export default function NewSubmission() {
               type="button"
               disabled={loading}
               onClick={handleSubmit}
-              className="px-7 py-3 rounded-xl font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 flex items-center gap-2 text-sm shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+              className="px-7 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 flex items-center gap-2 text-sm shadow-md shadow-emerald-500/20 disabled:opacity-50"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin text-slate-950" />
+                  <Loader2 className="w-4 h-4 animate-spin text-white" />
                   Scheduling Pickup...
                 </>
               ) : (
