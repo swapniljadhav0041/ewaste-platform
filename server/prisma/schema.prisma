@@ -1,0 +1,138 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  COLLECTOR
+  ADMIN
+}
+
+enum SubmissionStatus {
+  REQUESTED
+  SCHEDULED
+  COLLECTED
+  VERIFIED
+  REJECTED
+  CANCELLED
+}
+
+enum Grade {
+  A
+  B
+  C
+  REJECTED
+}
+
+enum RateUnit {
+  PER_ITEM
+  PER_KG
+}
+
+enum TxType {
+  EARN
+  REDEEM
+  BONUS
+  ADJUST
+}
+
+model User {
+  id            String              @id @default(uuid())
+  name          String
+  email         String              @unique
+  phone         String?
+  passwordHash  String
+  role          Role                @default(USER)
+  referralCode  String              @unique
+  referredById  String?
+  createdAt     DateTime            @default(now())
+  submissions   Submission[]
+  transactions  WalletTransaction[]
+  redemptions   Redemption[]
+}
+
+model EwasteCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String
+  examples    String[]
+  baseRate    Int
+  unit        RateUnit
+  hazardous   Boolean  @default(false)
+  co2PerKg    Float    @default(0)
+  active      Boolean  @default(true)
+}
+
+model Submission {
+  id            String           @id @default(uuid())
+  userId        String
+  user          User             @relation(fields: [userId], references: [id])
+  status        SubmissionStatus @default(REQUESTED)
+  pickupAddress String
+  pickupSlot    DateTime?
+  collectorId   String?
+  notes         String?
+  totalCredits  Int              @default(0)
+  createdAt     DateTime         @default(now())
+  items         SubmissionItem[]
+}
+
+model SubmissionItem {
+  id           String     @id @default(uuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id])
+  categoryId   String
+  quantity     Int        @default(1)
+  weightKg     Float?
+  photoUrls    String[]
+  grade        Grade?
+  credits      Int        @default(0)
+}
+
+model WalletTransaction {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      TxType
+  amount    Int      // positive for EARN/BONUS, negative for REDEEM
+  refId     String?  // submissionId or redemptionId
+  note      String?
+  createdAt DateTime @default(now())
+}
+
+model Offer {
+  id          String       @id @default(uuid())
+  partner     String
+  title       String
+  description String
+  creditCost  Int
+  stock       Int
+  expiresAt   DateTime?
+  active      Boolean      @default(true)
+  redemptions Redemption[]
+}
+
+model Redemption {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  offerId    String
+  offer      Offer    @relation(fields: [offerId], references: [id])
+  couponCode String   @unique
+  status     String   @default("ISSUED") // ISSUED | USED | EXPIRED
+  createdAt  DateTime @default(now())
+}
+
+model CollectionCenter {
+  id       String   @id @default(uuid())
+  name     String
+  address  String
+  lat      Float
+  lng      Float
+  accepted String[]
+}
