@@ -7,6 +7,15 @@ A modern full-stack platform enabling citizens to recycle electronic waste respo
 
 ---
 
+## 🌐 Live Platform URLs
+
+* 🖥️ **Live Web Application**: [https://voltcycle-web.onrender.com](https://voltcycle-web.onrender.com)
+* ⚡ **Live API Service**: [https://voltcycle-api.onrender.com](https://voltcycle-api.onrender.com)
+* 🩺 **API Health Check**: [https://voltcycle-api.onrender.com/api/health](https://voltcycle-api.onrender.com/api/health)
+* 🗄️ **Managed Database**: Render PostgreSQL (`voltcycle-db`)
+
+---
+
 ## ⚡ 1-Click Cloud Deployment
 
 ### Deploy Frontend to Vercel
